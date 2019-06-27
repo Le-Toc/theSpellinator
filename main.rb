@@ -13,18 +13,34 @@ Run program
 =end
 
 def startProgram
-    #Output a word to the user
-    puts "Extra or supplementary to what is already present or available"
+    #Create the Array
+    descriptions =
+    [
+        "Extra or supplementary to what is already present or available",
+        "To be condemned by God to suffer eternal punishment in hell",
+        "The title given to a woman with the rank of Knight Commander or holder of the Grand Cross in the Orders of Chivalry"
+    ]
+    
+    for i in 0..2
+        queryUser(i, descriptions)
+    end
+end
 
+def queryUser(i, descriptions)
+    puts descriptions[i]
     userInput = gets.chomp
 
     if userInput == "no" || userInput == "No" || userInput == "Exit" || userInput == "exit"
         exit
-    elsif userInput == "Additional"
+    elsif i == 0 && userInput == "Additional"
         puts "Correct"
-    elsif userInput != "Additional"
+    elsif i == 1 && userInput == "Damn"
+        puts "Correct"
+    elsif i == 2 && userInput == "Dame"
+        puts "Correct"
+    else
         puts "Incorrect"
-        startProgram
+        queryUser(i, descriptions)
     end
 end
 
