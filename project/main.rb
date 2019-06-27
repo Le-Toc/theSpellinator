@@ -12,15 +12,31 @@ Run program
     End the program
 =end
 
-#Branch: Implement Object Orientated Design
+#Branch, Implement Object Orientated Design
+
+class WordToLearn
+    @@no_of_fails
+    @@word
+    @@description
+
+    def initialize(wordInput, descriptionInput)
+        word = wordInput
+        description = descriptionInput
+        no_of_fails  = 0
+    end
+
+    def outputDescription
+        puts description
+    end
+end
 
 def startProgram
     #Create the Array
     descriptions =
     [
-        "Extra or supplementary to what is already present or available",
-        "To be condemned by God to suffer eternal punishment in hell",
-        "The title given to a woman with the rank of Knight Commander or holder of the Grand Cross in the Orders of Chivalry"
+        WordToLearn.new("Additional", "Extra or supplementary to what is already present or available"),
+        WordToLearn.new("Damn", "To be condemned by God to suffer eternal punishment in hell"),
+        WordToLearn.new("Dame", "The title given to a woman with the rank of Knight Commander or holder of the Grand Cross in the Orders of Chivalry")
     ]
     
     for i in 0..2
@@ -29,16 +45,12 @@ def startProgram
 end
 
 def queryUser(i, descriptions)
-    puts descriptions[i]
+    puts descriptions[i.outputDescription]
     userInput = gets.chomp
 
     if userInput == "no" || userInput == "No" || userInput == "Exit" || userInput == "exit"
         exit
-    elsif i == 0 && userInput == "Additional"
-        puts "Correct"
-    elsif i == 1 && userInput == "Damn"
-        puts "Correct"
-    elsif i == 2 && userInput == "Dame"
+    elsif userInput == descriptions[i.word]
         puts "Correct"
     else
         puts "Incorrect"
