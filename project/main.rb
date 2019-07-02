@@ -58,10 +58,16 @@ def startProgram
         WordToLearn.new("Damn", "To be condemned by God to suffer eternal punishment in hell"),
         WordToLearn.new("Dame", "The title given to a woman with the rank of Knight Commander or holder of the Grand Cross in the Orders of Chivalry")
     ]
-    
+
+    for i in 0..2
+        puts wordsToLearn[i].getWord
+    end
+
+=begin
     for i in 0..2
         queryUser(i, wordsToLearn)
     end
+=end
 end
 
 def queryUser(i, descriptions)
