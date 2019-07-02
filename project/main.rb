@@ -1,5 +1,5 @@
 =begin
-Build a program to help my spelling.
+Program Purpose: Build a program to help my spelling.
 
 Run program
     Select a word from a list of words.  Select the description linked to that word.
@@ -12,7 +12,7 @@ Run program
     End the program
 =end
 
-#Branch, Implement Object Orientated Design
+#Branch: Implement Object Orientated Design
 
 class WordToLearn
     @noOfFails
@@ -52,18 +52,7 @@ end
 
 def startProgram
     #Create the Array
-    newWord = WordToLearn.new("Additional", "Extra or supplementary to what is already present or available")
-    puts "Hello World"
-    var = newWord.getWord
-    puts var
-
-    newWord.setWord("Additional2")
-
-    var = newWord.getWord
-    puts var
-    #puts newWord.word
-=begin
-    descriptions =
+    wordsToLearn =
     [
         WordToLearn.new("Additional", "Extra or supplementary to what is already present or available"),
         WordToLearn.new("Damn", "To be condemned by God to suffer eternal punishment in hell"),
@@ -71,9 +60,8 @@ def startProgram
     ]
     
     for i in 0..2
-        queryUser(i, descriptions)
+        queryUser(i, wordsToLearn)
     end
-=end
 end
 
 def queryUser(i, descriptions)
@@ -90,7 +78,11 @@ def queryUser(i, descriptions)
     end
 end
 
-=begin
+startProgram
+
+
+#Comments
+=begin An If Statement
     x = 0
     if x > 2
         puts "x is greater than 2"
@@ -101,31 +93,37 @@ end
     end
 =end
 
-startProgram
+=begin Basic method functionality
+    def test(a1 = "Ruby", a2 = "Perl")
+        puts "The programming language is #{a1}"
+        puts "The programming language is #{a2}"
+    end
+    
+    #test "C", "C++"
+    #test
+=end
 
+=begin Create an object and get values from it
+    newWord = WordToLearn.new("Additional", "Extra or supplementary to what is already present or available")
+    puts "Hello World"
+    var = newWord.getWord
+    puts var
 
+    newWord.setWord("Additional2")
 
+    var = newWord.getWord
+    puts var
+=end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def test(a1 = "Ruby", a2 = "Perl")
-    puts "The programming language is #{a1}"
-    puts "The programming language is #{a2}"
-end
- #test "C", "C++"
- #test
+=begin An Array and A For Each Loop
+    descriptions =
+    [
+        WordToLearn.new("Additional", "Extra or supplementary to what is already present or available"),
+        WordToLearn.new("Damn", "To be condemned by God to suffer eternal punishment in hell"),
+        WordToLearn.new("Dame", "The title given to a woman with the rank of Knight Commander or holder of the Grand Cross in the Orders of Chivalry")
+    ]
+    
+    for i in 0..2
+        queryUser(i, descriptions)
+    end
+=end
