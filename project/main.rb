@@ -15,23 +15,54 @@ Run program
 #Branch, Implement Object Orientated Design
 
 class WordToLearn
-    @@no_of_fails
-    @@word
-    @@description
+    @noOfFails
+    @word
+    @description
 
     def initialize(wordInput, descriptionInput)
-        word = wordInput
-        description = descriptionInput
-        no_of_fails  = 0
+        @word = wordInput
+        @description = descriptionInput
+        @noOfFails  = 0
     end
 
-    def outputDescription
-        puts description
+    def getWord
+        return @word
+    end
+
+    def setWord(newWord)
+        @word = newWord
+    end
+
+    def getDescription
+        return @description
+    end
+
+    def setDescription(newDescription)
+        @description = newDescription
+    end
+
+    def getNoOfFails
+        return @description
+    end
+
+    def setNoOfFails(newNoOfFails)
+        @noOfFails = newNoOfFails
     end
 end
 
 def startProgram
     #Create the Array
+    newWord = WordToLearn.new("Additional", "Extra or supplementary to what is already present or available")
+    puts "Hello World"
+    var = newWord.getWord
+    puts var
+
+    newWord.setWord("Additional2")
+
+    var = newWord.getWord
+    puts var
+    #puts newWord.word
+=begin
     descriptions =
     [
         WordToLearn.new("Additional", "Extra or supplementary to what is already present or available"),
@@ -42,13 +73,14 @@ def startProgram
     for i in 0..2
         queryUser(i, descriptions)
     end
+=end
 end
 
 def queryUser(i, descriptions)
     puts descriptions[i.outputDescription]
     userInput = gets.chomp
 
-    if userInput == "no" || userInput == "No" || userInput == "Exit" || userInput == "exit"
+    if userInput == "no" || userInput == "No" || userInput == "Exit" || userInput == "exit" #put in to upper case allow for "NO"
         exit
     elsif userInput == descriptions[i.word]
         puts "Correct"
@@ -94,6 +126,6 @@ startProgram
 def test(a1 = "Ruby", a2 = "Perl")
     puts "The programming language is #{a1}"
     puts "The programming language is #{a2}"
- end
+end
  #test "C", "C++"
  #test
