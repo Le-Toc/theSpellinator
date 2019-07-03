@@ -1,6 +1,13 @@
 To Do List:
+    Create a final product description
+    Add content to the iteration0 document
+    Add in unit tests
+    Look up the require_relative command, see if there is a better why to link files
+    Add in the random number generator
+    Add in functionality to track the number of fails a word has
+    Figure out a way to save the number of fails per word between separate sessions
 
-Create an interation 1 document
-Create a final product description
 
-Bring objects into the program
+Finished:
+    Bring objects into the program - Done
+    Create an interation 0 document - Done
