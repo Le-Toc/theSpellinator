@@ -60,28 +60,24 @@ def startProgram
     ]
 
     for i in 0..2
-        puts wordsToLearn[i].getWord
-    end
-
-=begin
-    for i in 0..2
         queryUser(i, wordsToLearn)
     end
-=end
 end
 
-def queryUser(i, descriptions)
-    puts descriptions[i.outputDescription]
+def queryUser(i, wordsToLearn)
+    puts wordsToLearn[i].getDescription
+
     userInput = gets.chomp
 
     if userInput == "no" || userInput == "No" || userInput == "Exit" || userInput == "exit" #put in to upper case allow for "NO"
         exit
-    elsif userInput == descriptions[i.word]
+    elsif userInput == wordsToLearn[i].getWord
         puts "Correct"
     else
         puts "Incorrect"
-        queryUser(i, descriptions)
+        queryUser(i, wordsToLearn)
     end
+
 end
 
 startProgram
