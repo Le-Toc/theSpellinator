@@ -12,7 +12,7 @@ Run program
     End the program
 =end
 
-#Branch: Separate Classes
+#Branch: Implement Random Functionality
 
 require_relative "word_to_learn"
 
@@ -54,6 +54,8 @@ def startProgram
         WordToLearn.new("Shower Gel", "A thick liquid product used for washing one's body"),
         WordToLearn.new("Deodorant", "A spray which removes or conceals unpleasant smells, especially bodily odours")
     ]
+
+    puts rand(0..(wordsToLearn.size() - 1))
 
     for i in 0..(wordsToLearn.size() - 1)
         queryUser(i, wordsToLearn)
