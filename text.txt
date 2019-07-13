@@ -1,0 +1,7 @@
+Word Selection Process:
+
+What is the best way to iterate through the array
+
+Select ten numbers at random from 0 to the length of the array
+put these ten numbers into an array
+use the numbers in the new array to call the corresponding elements in the wordsToLearn array
