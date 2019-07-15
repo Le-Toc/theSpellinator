@@ -13,6 +13,7 @@ Run program
 =end
 
 #Branch: Implement Random Functionality
+#Current Task: Bring wordsToTest array into main functionality
 
 require_relative "word_to_learn"
 
@@ -27,13 +28,8 @@ def startProgram
     #Create an array of words to test
     wordsToTest = selectWordsToTest(wordsToLearn)
 
-    wordsToTest.each do |i|
-        puts i
-    end
-
-    for i in 0..(wordsToLearn.size() - 1)
-        #queryUser(i, wordsToLearn)
-    end
+    #Query user on selected words
+    runQuestions(wordsToLearn, wordsToTest)
 end
 
 def createTheArray
@@ -135,18 +131,30 @@ def testIfNumberIsNew(wordsToTest, numberToBeAdded, numberIsNew)
     return numberIsNew
 end
 
-def queryUser(i, wordsToLearn)
-    puts wordsToLearn[i].getDescription
+def runQuestions(wordsToLearn, wordsToTest)
+    #Call method based on the words to learn
+    wordsToTest.each do |wordNumber|
+        queryUser(wordNumber, wordsToLearn)
+    end
+end
 
+def queryUser(wordNumber, wordsToLearn)
+    #Output the description of the word
+    puts wordsToLearn[wordNumber].getDescription
+
+    #Get the user's response
     userInput = gets.chomp
 
+    #Check if the user wants to exit the program
     if userInput == "no" || userInput == "No" || userInput == "Exit" || userInput == "exit" #put in to upper case allow for "NO"
         exit
-    elsif userInput == wordsToLearn[i].getWord
+    elsif userInput == wordsToLearn[wordNumber].getWord
+        #Check if the user was correct
         puts "Correct"
     else
+        #If not output the same question to them
         puts "Incorrect"
-        queryUser(i, wordsToLearn)
+        queryUser(wordNumber, wordsToLearn)
     end
 end
 

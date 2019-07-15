@@ -10,6 +10,7 @@ To Do List:
     Currently the number of outputted words is 10.  Make sure that the number of words outputted can't exceed the number of words to learn.
         If the selection of words to learn is greater than the total then it will cause an infinite loop because I selected words can't have 
         duplicates.  It will continuously look for new words when there aren't any.
+    Give the user the option to set the number of words to test
 
 
 Finished:
