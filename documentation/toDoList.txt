@@ -6,6 +6,10 @@ To Do List:
     Add in the random number generator
     Add in functionality to track the number of fails a word has
     Figure out a way to save the number of fails per word between separate sessions
+    Add an output method which will output all the elements in a array in order with the element number and a name at the top
+    Currently the number of outputted words is 10.  Make sure that the number of words outputted can't exceed the number of words to learn.
+        If the selection of words to learn is greater than the total then it will cause an infinite loop because I selected words can't have 
+        duplicates.  It will continuously look for new words when there aren't any.
 
 
 Finished:

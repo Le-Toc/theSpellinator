@@ -21,7 +21,23 @@ def main
 end
 
 def startProgram
-    #Create the Array
+    #Create the Array of words to learn
+    wordsToLearn = createTheArray
+
+    #Create an array of words to test
+    wordsToTest = selectWordsToTest(wordsToLearn)
+
+    wordsToTest.each do |i|
+        puts i
+    end
+
+    for i in 0..(wordsToLearn.size() - 1)
+        #queryUser(i, wordsToLearn)
+    end
+end
+
+def createTheArray
+    #Create and populate the array
     wordsToLearn =
     [
         WordToLearn.new("Additional", "Extra or supplementary to what is already present or available"),
@@ -55,13 +71,68 @@ def startProgram
         WordToLearn.new("Deodorant", "A spray which removes or conceals unpleasant smells, especially bodily odours")
     ]
 
-    puts rand(0..(wordsToLearn.size() - 1))
+    return wordsToLearn
+end
 
-=begin
-    for i in 0..(wordsToLearn.size() - 1)
-        queryUser(i, wordsToLearn)
+def selectWordsToTest(wordsToLearn)
+    #Create the array of words to test
+    wordsToTest = Array.new
+
+    #Assign 10 Numbers To wordsToTest Array
+    for i in 0..9
+        wordsToTest = assignNumbersToArray(wordsToTest, wordsToLearn)
     end
-=end
+
+    return wordsToTest
+end
+    
+def assignNumbersToArray(wordsToTest, wordsToLearn)
+    #Call the method to filter the numbers and add one
+    wordsToTest = addANewNumber(wordsToTest, wordsToLearn)
+    return wordsToTest
+end
+
+def addANewNumber(wordsToTest, wordsToLearn)
+    #Pick a random number based on size of the wordsToLearn array
+    numberToBeAdded = rand(0..(wordsToLearn.size() - 1))
+
+    #Declare a variable to test for duplicates
+    numberIsNew = true
+
+    #If the array is empty add the number in without filter
+    if wordsToTest.size() == 0
+        wordsToTest.push numberToBeAdded
+    else
+        #If the array isn't empty test that the new number isn't already in the array and if it isn't add it
+        wordsToTest = testIfNumberIsNewAndAdd(wordsToTest, numberToBeAdded, numberIsNew, wordsToLearn)
+    end
+
+    return wordsToTest
+end
+
+def testIfNumberIsNewAndAdd(wordsToTest, numberToBeAdded, numberIsNew, wordsToLearn)
+    #Test if the number is in the array
+    numberIsNew = testIfNumberIsNew(wordsToTest, numberToBeAdded, numberIsNew)
+
+    #If the number is new add it to the array
+    if numberIsNew
+        wordsToTest.push numberToBeAdded
+    else
+        #Call the addNewNumber method again until a new number can be added
+        addANewNumber(wordsToTest, wordsToLearn)
+    end
+
+    return wordsToTest
+end
+
+def testIfNumberIsNew(wordsToTest, numberToBeAdded, numberIsNew)
+    wordsToTest.each do |i|
+        if i == numberToBeAdded
+            numberIsNew = false
+        end
+    end
+
+    return numberIsNew
 end
 
 def queryUser(i, wordsToLearn)
@@ -77,55 +148,67 @@ def queryUser(i, wordsToLearn)
         puts "Incorrect"
         queryUser(i, wordsToLearn)
     end
-
 end
 
+#Program starts here.  All methods have to be declared before they can be called
 main
 
 
-#Comments
-=begin An If Statement
-    x = 0
-    if x > 2
-        puts "x is greater than 2"
-    elsif x <= 2 and x != 0
-        puts "x is 1"
-    else
-        puts "I can't guess the number"
-    end
-=end
-
-=begin Basic method functionality
-    def test(a1 = "Ruby", a2 = "Perl")
-        puts "The programming language is #{a1}"
-        puts "The programming language is #{a2}"
-    end
+=begin Comments
+    An If Statement
+        x = 0
+        if x > 2
+            puts "x is greater than 2"
+        elsif x <= 2 and x != 0
+            puts "x is 1"
+        else
+            puts "I can't guess the number"
+        end
     
-    #test "C", "C++"
-    #test
-=end
-
-=begin Create an object and get values from it
-    newWord = WordToLearn.new("Additional", "Extra or supplementary to what is already present or available")
-    puts "Hello World"
-    var = newWord.getWord
-    puts var
-
-    newWord.setWord("Additional2")
-
-    var = newWord.getWord
-    puts var
-=end
-
-=begin An Array and A For Each Loop
-    descriptions =
-    [
-        WordToLearn.new("Additional", "Extra or supplementary to what is already present or available"),
-        WordToLearn.new("Damn", "To be condemned by God to suffer eternal punishment in hell"),
-        WordToLearn.new("Dame", "The title given to a woman with the rank of Knight Commander or holder of the Grand Cross in the Orders of Chivalry")
-    ]
     
-    for i in 0..2
-        queryUser(i, descriptions)
-    end
+    
+    Basic method functionality
+        def test(a1 = "Ruby", a2 = "Perl")
+            puts "The programming language is #{a1}"
+            puts "The programming language is #{a2}"
+        end
+    
+        #test "C", "C++"
+        #test
+
+    
+    Create an object and get values from it
+        newWord = WordToLearn.new("Additional", "Extra or supplementary to what is already present or available")
+        puts "Hello World"
+        var = newWord.getWord
+        puts var
+
+        newWord.setWord("Additional2")
+
+        var = newWord.getWord
+        puts var
+
+    
+    An Array and A For Each Loop
+        descriptions =
+        [
+            WordToLearn.new("Additional", "Extra or supplementary to what is already present or available"),
+            WordToLearn.new("Damn", "To be condemned by God to suffer eternal punishment in hell"),
+            WordToLearn.new("Dame", "The title given to a woman with the rank of Knight Commander or holder of the Grand Cross in the Orders of Chivalry")
+        ]
+        
+        for i in 0..2
+            queryUser(i, descriptions)
+        end
+
+    
+    For Loop Where The Loop Variable, i, is used with print method (and new line is used)
+        for i in 0..(wordsToLearn.size() - 1)
+            print i , " : " + wordsToLearn[i].getWord + "\n"
+        end
+    For Each Loop
+        ary = [1,2,3,4,5]       #Declare the array
+        ary.each do |i|         #For each element in the array assign that element to i
+            puts i              #Output the element assigned to i
+        end                     #Add in end statment to close.  This won't interfear with other end statements
 =end
