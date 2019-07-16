@@ -173,8 +173,6 @@ main
             puts "I can't guess the number"
         end
     
-    
-    
     Basic method functionality
         def test(a1 = "Ruby", a2 = "Perl")
             puts "The programming language is #{a1}"
@@ -184,7 +182,6 @@ main
         #test "C", "C++"
         #test
 
-    
     Create an object and get values from it
         newWord = WordToLearn.new("Additional", "Extra or supplementary to what is already present or available")
         puts "Hello World"
@@ -196,7 +193,6 @@ main
         var = newWord.getWord
         puts var
 
-    
     An Array and A For Each Loop
         descriptions =
         [
@@ -209,11 +205,11 @@ main
             queryUser(i, descriptions)
         end
 
-    
     For Loop Where The Loop Variable, i, is used with print method (and new line is used)
         for i in 0..(wordsToLearn.size() - 1)
             print i , " : " + wordsToLearn[i].getWord + "\n"
         end
+        
     For Each Loop
         ary = [1,2,3,4,5]       #Declare the array
         ary.each do |i|         #For each element in the array assign that element to i
