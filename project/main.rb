@@ -16,9 +16,12 @@ Run program
 #Current Task: Bring wordsToTest array into main functionality
 
 require_relative "word_to_learn"
+require 'io/console'
 
 def main
-    startProgram
+    show_single_key while(true)
+
+    #startProgram
 end
 
 def startProgram
@@ -64,7 +67,8 @@ def createTheArray
         WordToLearn.new("Trousers", "An outer garment covering the body from the waist to the ankles, with a separate part for each leg"),
         WordToLearn.new("Toiletries", "Articles used in washing and taking care of one's body, such as soap, shampoo, and toothpaste"),
         WordToLearn.new("Shower Gel", "A thick liquid product used for washing one's body"),
-        WordToLearn.new("Deodorant", "A spray which removes or conceals unpleasant smells, especially bodily odours")
+        WordToLearn.new("Deodorant", "A spray which removes or conceals unpleasant smells, especially bodily odours"),
+        WordToLearn.new("Searches", "Try to find something by looking or otherwise seeking carefully and thoroughly (Plural)")
     ]
 
     return wordsToLearn
@@ -145,6 +149,8 @@ def queryUser(wordNumber, wordsToLearn)
     #Get the user's response
     userInput = gets.chomp
 
+    puts userInput
+=begin
     #Check if the user wants to exit the program
     if userInput == "no" || userInput == "No" || userInput == "Exit" || userInput == "exit" #put in to upper case allow for "NO"
         exit
@@ -156,10 +162,75 @@ def queryUser(wordNumber, wordsToLearn)
         puts "Incorrect"
         queryUser(wordNumber, wordsToLearn)
     end
+=end
 end
+
+# Reads keypresses from the user including 2 and 3 escape character sequences.
+def read_char
+    #These two lines reset the STDIN functionality?
+    STDIN.echo = false #What is this
+    STDIN.raw! #What is this
+  
+    input = STDIN.getc.chr #Take the input from the user?
+
+    #What is this?
+    if input == "\e" then
+      input << STDIN.read_nonblock(3) rescue nil
+      input << STDIN.read_nonblock(2) rescue nil
+    end    #What is this
+  ensure
+    STDIN.echo = true
+    STDIN.cooked!
+  
+    return input
+end
+
+def show_single_key
+    c = read_char
+    
+    #Output for every functionality
+    case c
+    when " "
+      puts "SPACE"
+    when "\t"
+      puts "TAB"
+    when "\r"
+      puts "RETURN"
+    when "\n"
+      puts "LINE FEED"
+    when "\e"
+      puts "ESCAPE"
+    when "\e[A"
+      puts "UP ARROW"
+    when "\e[B"
+      puts "DOWN ARROW"
+    when "\e[C"
+      puts "RIGHT ARROW"
+    when "\e[D"
+      puts "LEFT ARROW"
+    when "\177"
+      puts "BACKSPACE"
+    when "\004"
+      puts "DELETE"
+    when "\e[3~"
+      puts "ALTERNATE DELETE"
+    when "\u0003"
+      puts "CONTROL-C"
+      exit 0
+    when /^.$/
+      puts "SINGLE CHAR HIT: #{c.inspect}"
+    else
+      puts "SOMETHING ELSE: #{c.inspect}"
+    end
+end
+
 
 #Program starts here.  All methods have to be declared before they can be called
 main
+
+
+
+
 
 
 =begin Comments
