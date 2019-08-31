@@ -1,0 +1,14 @@
+Purpose:  Write down the iterations of this project so that I can leave the project with a sense of
+completion.
+
+1:
+What functionality do I want in the second iteration?
+Add better descriptions to the words
+Add in "Up Key" functionality to return the users last input
+Clean up the output of the program
+Allow the user to request a clue
+
+0:
+Build a program that outputs descriptions of words to the user.  Allow the user to guess what the words
+are.  If the user gets it wrong tell them it's incorrect and output the description again.  If they get
+it right tell them it's correct and output the next description to them.

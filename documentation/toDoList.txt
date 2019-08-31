@@ -1,15 +1,11 @@
 To Do List:
 
-Documentation:
-    Create a final product description
-
 Functionality:
     Add in unit tests
     Add in functionality to track the number of fails a word has.  Figure out a way to save the number of fails per word between separate sessions
-    Currently the number of outputted words is 10.  Make sure that the number of words outputted can't exceed the number of words to learn.
+    Give the user the option to set the number of words to test.  Currently the number of outputted words is 10.  Make sure that the number of words outputted can't exceed the number of words to learn.
         If the selection of words to learn is greater than the total then it will cause an infinite loop because I selected words can't have 
         duplicates.  It will continuously look for new words when there aren't any.
-    Give the user the option to set the number of words to test
     Add better descriptions to the words
     Allow the user to request a clue
     Allow the user to request the answer to the word
@@ -22,10 +18,13 @@ Research:
     Look up the STDIN functionality
     Look up the switch statement
     
+Documentation:
+    Create a final product description
+
 
 
 Done:
-    Add content to the iteration0 document
+    Add content to the iteration0 document - Done
     Bring objects into the program - Done
     Create an interation 0 document - Done
     Add in the random number generator - Done

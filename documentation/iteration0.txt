@@ -1,7 +1,0 @@
-Purpose:  Write down what iteration zero of this project is so that I can leave it finished if I want
-to.
-
-Iteration 0:
-Build a program that outputs descriptions of words to the user.  Allow the user to guess what the words
-are.  If the user gets it wrong tell them it's incorrect and output the description again.  If they get
-it right tell them it's correct and output the next description to them.
